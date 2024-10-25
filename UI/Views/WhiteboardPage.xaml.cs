@@ -1,4 +1,15 @@
-﻿using System;
+﻿/******************************************************************************
+ * Filename    = WhiteboardPage.xaml.cs
+ *
+ * Author      = Santhoshi Kumari Balaga
+ *
+ * Product     = UI
+ * 
+ * Project     = Views
+ *
+ * Description = Initialize a page for Whiteboard
+ *****************************************************************************/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

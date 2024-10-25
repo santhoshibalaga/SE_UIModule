@@ -8,7 +8,7 @@ namespace UI.ViewModels
     {
         private object _dashboardPage;
         private object _whiteboardPage;
-        private object _meetingPage;
+        private object _analyzerPage;
         private object _screensharePage;
         private object _fileclonerPage;
         private object _updaterPage;
@@ -21,7 +21,7 @@ namespace UI.ViewModels
             // Initialize pages
             DashboardPage = new DashboardPage();
             WhiteboardPage = new WhiteboardPage();
-            MeetingPage = new MeetingPage();
+            AnalyzerPage = new AnalyzerPage();
             ScreensharePage = new ScreensharePage();
             FileClonerPage = new FileClonerPage();
             UpdaterPage = new UpdaterPage();
@@ -82,13 +82,13 @@ namespace UI.ViewModels
             }
         }
 
-        public object MeetingPage
+        public object AnalyzerPage
         {
-            get { return _meetingPage; }
+            get { return _analyzerPage; }
             set
             {
-                _meetingPage = value;
-                OnPropertyChanged(nameof(MeetingPage));
+                _analyzerPage = value;
+                OnPropertyChanged(nameof(AnalyzerPage));
             }
         }
 

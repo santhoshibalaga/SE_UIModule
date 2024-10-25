@@ -1,5 +1,5 @@
 ﻿/******************************************************************************
- * Filename    = ScreenSharingPage.xaml.cs
+ * Filename    = AnalyzerPage.xaml.cs
  *
  * Author      = Santhoshi Kumari Balaga
  *
@@ -7,7 +7,7 @@
  * 
  * Project     = Views
  *
- * Description = Initialize a page for ScreenSharing
+ * Description = Initialize a page for analyzers
  *****************************************************************************/
 using System;
 using System.Collections.Generic;
@@ -23,20 +23,19 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using UI.ViewModels;
 
-namespace UI.Views
+namespace UI.Views;
+
+/// <summary>
+/// Interaction logic for Page1.xaml
+/// </summary>
+public partial class AnalyzerPage : Page
 {
     /// <summary>
-    /// Interaction logic for ScreensharePage.xaml
+    /// Initializing the analyzer page component
     /// </summary>
-    public partial class ScreensharePage : Page
+    public AnalyzerPage()
     {
-        public ScreensharePage()
-        {
-            InitializeComponent();
-
-            
-        }
+        InitializeComponent();
     }
 }

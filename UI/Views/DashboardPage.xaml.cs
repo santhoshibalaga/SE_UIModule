@@ -1,18 +1,28 @@
-﻿using System.Windows;
+﻿/******************************************************************************
+ * Filename    = DashboardPage.xaml.cs
+ *
+ * Author      = Santhoshi Kumari Balaga
+ *
+ * Product     = UI
+ * 
+ * Project     = Views
+ *
+ * Description = Initialize a page for Dashboard
+ *****************************************************************************/
+using System.Windows;
 using System.Windows.Controls;
 using UI.ViewModels;
 
-namespace UI.Views
+namespace UI.Views;
+
+public partial class DashboardPage : Page
 {
-    public partial class DashboardPage : Page
+    public DashboardPage()
     {
-        public DashboardPage()
-        {
-            InitializeComponent();
+        InitializeComponent();
 
-            this.DataContext = new DashboardViewModel();
-        }
-
-        
+        this.DataContext = new DashboardViewModel();
     }
+
+    
 }
