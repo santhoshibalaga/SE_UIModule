@@ -10,56 +10,18 @@
 
     <Window.Resources>
 
-        <!-- Style for TabControl -->
-        <Style TargetType="TabControl">
-            <Setter Property="Background" Value="White"/>
-            <Setter Property="BorderBrush" Value="White"/>
-            <Setter Property="Padding" Value="10" />
-            <Setter Property="BorderThickness" Value="0,0,1,0" />
-        </Style>
-
-        <Style TargetType="TabItem">
-            <Setter Property="Margin" Value="0 0 3 0"/>
-            <Setter Property="Padding" Value="8,4"/>
-            <Setter Property="MinWidth" Value="80"/>
-            <Setter Property="Background" Value="White" />
-            <Setter Property="Foreground" Value="Black" />
-            <Setter Property="FontSize" Value="14" />
-            <Setter Property="FontWeight" Value="Normal" />
-            <Setter Property="BorderBrush" Value="#CCCCCC" />
-            <Setter Property="FontSize" Value="12"/>
-            <Setter Property="HorizontalContentAlignment" Value="Center" />
-            <Setter Property="BorderThickness" Value="0" />
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="TabItem">
-                        <Border Background="{TemplateBinding Background}" 
-                                BorderBrush="{TemplateBinding BorderBrush}" 
-                                BorderThickness="{TemplateBinding BorderThickness}">
-                            <ContentPresenter VerticalAlignment="Center" 
-                                              HorizontalAlignment="Center"
-                                              ContentSource="Header"/>
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsSelected" Value="True">
-                                <Setter Property="Background" Value="LightBlue" />
-                                <Setter Property="Foreground" Value="Black" />
-                                <Setter Property="FontWeight" Value="Light" />
-                            </Trigger>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#E0E0E0" />
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- Load the light theme by default -->
+                <ResourceDictionary Source="C:\Users\11210\source\repos\UI\UI\Themes\LightTheme.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        
     </Window.Resources>
 
     <!-- Main Layout Grid -->
     <Grid Name="MainGrid">
-    
-        
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="8*"/>
             <!-- 70% for main tabs -->
@@ -69,38 +31,41 @@
 
 
         <DockPanel>
-        <!-- Tab Control for navigation -->
-        <TabControl SelectedIndex="{Binding SelectedTabIndex}">
-            <!-- Dashboard Tab -->
-            <TabItem Header="Dashboard">
-                <Frame Content="{Binding DashboardPage}" />
-            </TabItem>
+            <!-- Tab Control for navigation -->
+            <!-- Toggle Button to switch between light and dark theme -->
+            <Button Content="Switch to Dark Theme" DockPanel.Dock="Top" Click="Button_Click"
+                Width="200" Height="30" Margin="10"/>
+            <TabControl SelectedIndex="{Binding SelectedTabIndex}" Background="{DynamicResource BackgroundBrush}">
+                <!-- Dashboard Tab -->
+                <TabItem Header="Dashboard" Background="{DynamicResource BackgroundBrush}">
+                    <Frame Content="{Binding DashboardPage}" />
+                </TabItem>
 
-            <!-- Whiteboard Tab -->
-            <TabItem Header="Whiteboard">
-                <Frame Content="{Binding WhiteboardPage}" />
-            </TabItem>
+                <!-- Whiteboard Tab -->
+                <TabItem Header="Whiteboard">
+                    <Frame Content="{Binding WhiteboardPage}" />
+                </TabItem>
 
-            <TabItem Header="Updater">
-                <Frame Content="{Binding UpdaterPage}"/>
-            </TabItem>
+                <TabItem Header="Updater">
+                    <Frame Content="{Binding UpdaterPage}"/>
+                </TabItem>
 
-            <TabItem Header="FileCloner">
-                <Frame Content="{Binding FileClonerPage}"/>
-            </TabItem>
+                <TabItem Header="FileCloner">
+                    <Frame Content="{Binding FileClonerPage}"/>
+                </TabItem>
 
-            <TabItem Header="Content">
-                <Frame Content="{Binding ContentPage}"/>
-            </TabItem>
-            <!-- Meeting Tab -->
-            <TabItem Header="Meeting">
-                <Frame Content="{Binding MeetingPage}" />
-            </TabItem>
-            
-            <!-- Screenshare Tab -->
-            <TabItem Header="Screenshare">
-                <Frame Content="{Binding ScreensharePage}" />
-            </TabItem>
+                <TabItem Header="Content">
+                    <Frame Content="{Binding ContentPage}"/>
+                </TabItem>
+                <!-- Meeting Tab -->
+                <TabItem Header="Meeting">
+                    <Frame Content="{Binding MeetingPage}" />
+                </TabItem>
+
+                <!-- Screenshare Tab -->
+                <TabItem Header="Screenshare">
+                    <Frame Content="{Binding ScreensharePage}" />
+                </TabItem>
                 <!-- Chat Tab that toggles the chat panel visibility -->
                 <TabItem Header="Chat" Name="ChatTab" PreviewMouseDown="ChatTab_PreviewMouseDown">
                     <!-- Placeholder content for Chat -->
@@ -111,7 +76,7 @@
                            Foreground="Black"/>
                 </TabItem>
             </TabControl>
-    </DockPanel>
+        </DockPanel>
         <!-- Chat Panel (Initially hidden, placed in the second column) -->
         <Border Name="ChatPanel" Background="LightGray" Visibility="Collapsed"
                 Grid.Column="1" Grid.RowSpan="1" Margin="5">
